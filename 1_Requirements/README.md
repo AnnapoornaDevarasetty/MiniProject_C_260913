@@ -29,3 +29,6 @@ Specific information about the employee can not only be set to be kept private f
 * In order to get any immediate information about an particular employee. 
 ### HOW:
 * The information can be accessed by giving the respective Employee Id as an input. We can add,delete,sort and search for the data at any time.
+## SWOT Analysis:
+
+![screen 1500px](../Images/SWOTAnalysis.jpg)
