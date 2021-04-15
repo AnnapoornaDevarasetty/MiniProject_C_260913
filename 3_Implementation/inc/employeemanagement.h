@@ -35,37 +35,42 @@ struct employee
  */
 int num;                    //Number of Employees
 struct employee emp[max], tempemp[max], sortemp[max], sortemp1[max];
-
 /**
  * @brief 
  * 
+ * @return int 
  */
-void menu();
+int menu();
 /**
  * @brief 
  * 
+ * @return int 
  */
-void build();
+int build();
 /**
  * @brief 
  * 
+ * @return int 
  */
-void list();
+int list();
 /**
  * @brief 
  * 
+ * @return int 
  */
-void insert();
+int insert();
 /**
  * @brief 
  * 
+ * @return int 
  */
-void deletes();
+int deletes();
 /**
  * @brief 
  * 
+ * @return int 
  */
-void search();
+int search();
 
 
 #endif

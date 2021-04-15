@@ -1,6 +1,6 @@
 #include "employeemanagement.h"
 
-void search()
+int search()
 {
 	int jobcode,i,j;
 	system("clear");
@@ -34,5 +34,6 @@ void search()
             printf("No Record with the given empID is available.Please try again..\n");
         }
 	}
-	printf("Going to main menu");	
+	printf("Going to main menu");
+	return 0;	
 }

@@ -1,6 +1,6 @@
 #include "employeemanagement.h"
 
-void deletes()
+int deletes()
 {
 	system("clear");
 	int code;
@@ -44,4 +44,5 @@ void deletes()
 	{
 		emp[i] = tempemp[i];
 	}
+	return 0;
 }

@@ -1,6 +1,6 @@
 #include "employeemanagement.h"
 
-void insert()
+int insert()
 {
 	system("clear");
 	int i = num;
@@ -20,4 +20,5 @@ void insert()
 	printf("\n");
 	printf("The Record has been inserted successfully\n");
 	printf("Going to main menu");
+	return 0;
 }

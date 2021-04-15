@@ -1,6 +1,6 @@
 #include "employeemanagement.h"
 
-void menu()
+int menu()
 {
 	// system("clear");
 	printf("          ");
@@ -18,4 +18,5 @@ void menu()
 	printf("\nPress  q----------> Quit Program              ");
 	printf("             ");
 	printf("\n\nSelect Your Option Please ====> ");
+	return 0;
 }

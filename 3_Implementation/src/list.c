@@ -1,6 +1,6 @@
 #include "employeemanagement.h"
 
-void list()
+int list()
 {
 	int i, j;
 	char ch;
@@ -22,4 +22,5 @@ void list()
 		printf("\t  %s", emp[i].designation);
 		printf("\n");
 	}
+	return 0;
 }

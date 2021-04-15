@@ -1,6 +1,6 @@
 #include "employeemanagement.h"
 
-void build()
+int build()
 {
 	system("clear");
 	int i;
@@ -25,4 +25,5 @@ void build()
 		printf("--------------------------------------\n");
 	}
 	printf("Going to main menu");
+	return 0;
 }

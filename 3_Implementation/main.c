@@ -7,6 +7,7 @@
 int main()
 {
 	system("clear");
+	int x;
 	char option;
 	menu();
 	scanf("%c", &option);
@@ -15,24 +16,24 @@ int main()
 		switch (option)
 		{
 		case 'b':
-			build();
+			x=build();
 			system("clear");
 			menu();
 			break;
 		case 'l':
-			list();
+			x=list();
 			menu();
 			break;
 		case 'i':
-			insert();
+			x=insert();
 			menu();
 			break;
 		case 'd':
-			deletes();
+			x=deletes();
 			menu();
 			break;
 		case 's':
-			search();
+			x=search();
 			menu();
 			break;
 		}
