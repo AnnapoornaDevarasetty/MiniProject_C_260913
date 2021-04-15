@@ -1,15 +1,43 @@
-#Makefile present works only in windows only
 
 PROJ_NAME = employee_management_system
-
 TEST_PROJ_NAME = Test_$(PROJ_NAME)
 
-BUILD_DIR = ./Build
+SRC = src/menu.c \ 
+src/build.c \
+src/list.c \
+src/insert.c \
+src/deletes.c \
+src/search.c \
 
 
+src/input_year.c \
+src/input_day.c \
+src/input_month.c \
+src/verify_leapy_year.c \
+src/input_starting_weekdayofyear.c \
+src/input_YEAR_INFO.c \
+src/input_DAY_INFO.c \
+src/input_YEAR_CALENDAR_DISPLAY.c \
+src/input_MONTH_CALENDAR_DISPLAY.c \
+src/choose_module.c \
+src/input_select_menu.c \
+
+# All test source files
+TEST_SRC =  src/menu.c \
+src/build.c \
+src/list.c \
+src/insert.c \
+src/deletes.c \
+src/search.c \
+test/test.c\
+unity/unity.c\
+
+
+INC_H = inc
+INC_T = unity
 
 ifdef OS
-   RM = del /q
+   RM = del 
    FixPath = $(subst /,\,$1)
    EXEC = exe
 else
@@ -18,75 +46,18 @@ else
       FixPath = $1
 	  EXEC = out
    endif
-endif 
+endif
 
 
-
- 
-
-test_src = test_files/test.c 
-
-SRC = src/menu.c src/build.c src/list.c src/insert.c src/deletes.c src/search.c
-
-main_src = main.c
-
-UNITY = unity/unity.c 
-
-INC =  -Iinc\
--Iunity
-
-# Makefile will not run target command if the name with file already exists. To override, use .PHONY
-.PHONY : all test coverage run clean doc
-
-
-all:$(BUILD_DIR)
-	gcc main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
-   
-
-run: all
-	$(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
-
-
-test: $(SRC) $(test_src) $(UNITY)
-	gcc $^ $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
-	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
-
-
-doc:
-	 make -C ./documentation
-
-#pro: $(main_src) $(SRC) 
-#	gcc $(main_src) $(SRC) -I$(INC)  -o pro.exe
-
-
-#pro_run: pro.exe
-#	./pro.exe
-
-
-#test: $(SRC) $(test_src)
-#	gcc $(SRC) $(test_src) -I$(INC) -I -c $(UNITY) -o test.exe
-
-#run1: test.exe
-#	./test.exe
-
-
-coverage:${PROJECT_NAME}
-	gcc -fprofile-arcs -ftest-coverage main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
-	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
-	gcov -a main.c $(SRC) $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
-	$(RM) *.gcno
-	$(RM) *.gcov
-	$(RM) *.gcda
- 
-$(BUILD_DIR):
-	mkdir $(BUILD_DIR)
-
-valgrind:
-	valgrind $(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC)
-
+all:
+	gcc -I $(INC_H) $(SRC) main.c -o $(call FixPath,$(PROJ_NAME).$(EXEC))
 	
+run:
+	$(call FixPath,$(PROJ_NAME).$(EXEC))
+test:
+	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
+	./$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
+
 clean:
+	
 	$(RM) *.$(EXEC)
-	$(RM) *.gcno
-	$(RM) *.gcov
-	$(RM) *.gcda
