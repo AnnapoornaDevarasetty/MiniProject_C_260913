@@ -10,7 +10,7 @@ int build()
 	printf("how many do you want    -----> ");
 	scanf("%d", &num);
 	printf("Enter The Following Items\n");
-	for (i = 0; i <= num - 1; i++)
+	for (i = 0; i <= num - 1; i++)		//Creating a new record
 	{
 		printf("Name: ");
 		scanf("%s", emp[i].name);

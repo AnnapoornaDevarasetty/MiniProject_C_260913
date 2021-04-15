@@ -12,7 +12,7 @@ int search()
 	scanf("%d",&jobcode);
 	for(i=0;i<=num-1;i++)
 	{
-		if(emp[i].empID==jobcode)
+		if(emp[i].empID==jobcode)		//searchihng for the record with same EmpID
 		{
             printf("Got the Record you were searching for..\n");
             printf("\n");
@@ -29,7 +29,7 @@ int search()
 	 		printf("\t  %s",emp[i].designation);
 	 		printf("\n");
 		}
-        else
+        else	//if the given jobcode does not match with the existing empID 
         {
             printf("No Record with the given empID is available.Please try again..\n");
         }

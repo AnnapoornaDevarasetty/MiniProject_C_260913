@@ -1,6 +1,6 @@
 #include "employeemanagement.h"
 
-int insert()
+int insert()		//inserting a new record
 {
 	system("clear");
 	int i = num;

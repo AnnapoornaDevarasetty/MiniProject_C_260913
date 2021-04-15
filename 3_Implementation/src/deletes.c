@@ -11,18 +11,18 @@ int deletes()
 	int i;
 	for (i = 0; i <= num - 1; i++)
 	{
-		if (emp[i].empID == code)
+		if (emp[i].empID == code)		//compring the given code with existing empID
 		{
 			check = i;
 		}
 	}
-	if(check==-1)
+	if(check==-1)		//If the empID does not exists
 	{
 		printf("Unable to find the Record.Please try again...\n");
 	}
 	for (i = 0; i <= num - 1; i++)
 	{
-		if (i == check)
+		if (i == check)		//If the code exists the record gets deleted
 		{
 			printf("The Record with this EmpID is deleted.");
 			continue;

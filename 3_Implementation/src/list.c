@@ -8,7 +8,7 @@ int list()
 	printf("\n");
 	printf("Name            Code        Years(EXP)      Age   Designation\n");
 	printf("----------------------------------------------------------------\n");
-	for (i = 0; i <= num - 1; i++)
+	for (i = 0; i <= num - 1; i++)		//Displays the available records
 	{
 		printf("%s", emp[i].name);
 		j = 15 - strlen(emp[i].name);
