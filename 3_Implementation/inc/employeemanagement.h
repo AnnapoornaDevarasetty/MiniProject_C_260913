@@ -20,7 +20,7 @@
  * @brief 
  * 
  */
-struct employee
+typedef struct employee
 {
 	char name[20];          //Employee Name
 	long int empID;         //Employee ID
