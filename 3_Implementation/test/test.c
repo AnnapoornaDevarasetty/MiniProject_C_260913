@@ -7,11 +7,13 @@ int check_menu(int op)
 {
     TEST_ASSERT_EQUAL(0,menu(0));
 }
+
 //No testcases for build function
 int build()
 {
     
 }
+
 //No testcases for list function
 int list()
 {
@@ -65,6 +67,7 @@ int search(int empID)
     empID=123;      //If the empID given does not exists in the list
     TEST_ASSERT_EQUAL(-1,search(empID));
 }
+
 //No testcases for build function
 int sort()
 {
