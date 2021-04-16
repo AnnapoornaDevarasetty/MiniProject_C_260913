@@ -1,11 +1,11 @@
 
-name: C/C++ CI - Build Status
+name: C CI - Build Status
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
