@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "employeemanagement.h": "c",
+        "typeinfo": "c"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
+}
