@@ -2,25 +2,30 @@
 
 int list()
 {
-	int i, j;
-	char ch;
-	printf("         ***List The Table***");
-	printf("\n");
-	printf("Name            Code        Years(EXP)      Age   Designation\n");
-	printf("----------------------------------------------------------------\n");
-	for (i = 0; i <= num - 1; i++)		//Displays the available records
-	{
-		printf("%s", emp[i].name);
-		j = 15 - strlen(emp[i].name);
-		for (; j > 0; j--)
-		{
-			printf(" ");
-		}
-		printf("%5ld", emp[i].empID);
-		printf("%17d", emp[i].experience);
-		printf("%10d", emp[i].age);
-		printf("\t  %s", emp[i].designation);
-		printf("\n");
-	}
-	return 0;
+    system("clear");
+    int i, j;
+    employee emp;
+    FILE *fp2;
+    fp2 = fopen("employeeData.txt", "r");
+    printf("         ***List The Table***");
+    printf("\n");
+    printf("Name            EmpID        Years(EXP)      Age   Designation\n");
+    printf("----------------------------------------------------------------\n");
+    while (fread(&emp, sizeof(employee), 1, fp2))
+    {
+        printf("%s", emp.name);
+        j = 15 - strlen(emp.name);
+        for (; j > 0; j--)
+        {
+            printf(" ");
+        }
+        printf("%5d", emp.empID);
+        printf("%17d", emp.experience);
+        printf("%10d", emp.age);
+        printf("\t  %s", emp.designation);
+        printf("\n");
+    }
+    printf("\n\n");
+    fclose(fp2);
+    return 0;
 }

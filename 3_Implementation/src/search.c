@@ -1,39 +1,39 @@
 #include "employeemanagement.h"
 
-int search()
+int search(int empID)
 {
-	int jobcode,i,j;
-	system("clear");
-	printf("Welcome To Search Of Employee Database \n");
-	printf("\n");
-	printf("You Can Search Only By Jobcode Of An Employee\n");
-    printf("\n");
-	printf("Enter Code Of An Employee: ");
-	scanf("%d",&jobcode);
-	for(i=0;i<=num-1;i++)
-	{
-		if(emp[i].empID==jobcode)		//searchihng for the record with same EmpID
-		{
-            printf("Got the Record you were searching for..\n");
-            printf("\n");
-			printf("Name            Code        Years(EXP)      Age   Designation\n");
- 			printf("----------------------------------------------------------------\n");
- 			printf("%s",emp[i].name);
-	 		j=15-strlen(emp[i].name);
-	 		for(;j>0;j--){
-	 			printf(" ");
-			 }
-	 		printf("%5ld",emp[i].empID);
-	 		printf("%17d",emp[i].experience);
-	 		printf("%10d",emp[i].age);
-	 		printf("\t  %s",emp[i].designation);
-	 		printf("\n");
-		}
-        else	//if the given jobcode does not match with the existing empID 
+    int i, j;
+    employee emp;
+    int flag = 0;
+    FILE *fp4;
+    fp4 = fopen("employeeData.txt", "r");
+    while (fread(&emp, sizeof(employee), 1, fp4))
+    {
+        if (emp.empID == empID)
         {
-            printf("No Record with the given empID is available.Please try again..\n");
+            printf("         ***List The Table***");
+            printf("\n\n\n");
+            printf("Name            EmpID        Years(EXP)      Age   Designation\n");
+            printf("----------------------------------------------------------------\n");
+
+            flag = 1;
+            printf("%s", emp.name);
+            j = 15 - strlen(emp.name);
+            for (; j > 0; j--)
+            {
+                printf(" ");
+            }
+            printf("%5d", emp.empID);
+            printf("%17d", emp.experience);
+            printf("%10d", emp.age);
+            printf("\t  %s", emp.designation);
+            printf("\n\n");
         }
-	}
-	printf("Going to main menu");
-	return 0;	
+    }
+    if (flag == 0)
+    {
+        return -1;
+    }
+    fclose(fp4);
+    return 0;
 }

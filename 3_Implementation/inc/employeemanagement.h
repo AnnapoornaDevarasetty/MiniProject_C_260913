@@ -1,6 +1,6 @@
 /**
  * @file employeemanagement.h
- * @author your name (you@domain.com)
+ * @author Devarasetty V S Annapoorna
  * @brief 
  * @version 0.1
  * @date 2021-04-14
@@ -15,32 +15,25 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define max 20
 /**
  * @brief 
  * 
  */
 typedef struct employee
 {
-	char name[20];          //Employee Name
-	long int empID;         //Employee ID
-	char designation[20];   //Designation of the Employee
-	int experience;         //Experience of the employee
-	int age;                //Age of the employee
+    char name[20];
+    int empID;
+    char designation[20];
+    int experience;
+    int age;
 } employee;
-
 /**
  * @brief 
  * 
- */
-int num;                    //Number of Employees
-struct employee emp[max], tempemp[max], sortemp[max], sortemp1[max];
-/**
- * @brief 
- * 
+ * @param op 
  * @return int 
  */
-int menu();
+int menu(int op);
 /**
  * @brief 
  * 
@@ -56,21 +49,45 @@ int list();
 /**
  * @brief 
  * 
+ * @param name 
+ * @param empID 
+ * @param designation 
+ * @param experience 
+ * @param age 
  * @return int 
  */
-int insert();
+int insert(char *name, int empID, char *designation, int experience, int age);
+/**
+ * @brief 
+ * 
+ * @param empID 
+ * @return int 
+ */
+int deletes (int empID);
+/**
+ * @brief 
+ * 
+ * @param name 
+ * @param empID 
+ * @param designation 
+ * @param experience 
+ * @param age 
+ * @return int 
+ */
+int edit(char *name, int empID, char *designation, int experience, int age);
+/**
+ * @brief 
+ * 
+ * @param empID 
+ * @return int 
+ */
+int search(int empID);
 /**
  * @brief 
  * 
  * @return int 
  */
-int deletes();
-/**
- * @brief 
- * 
- * @return int 
- */
-int search();
+int sort();
 
 
 #endif

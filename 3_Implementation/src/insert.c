@@ -1,24 +1,20 @@
 #include "employeemanagement.h"
 
-int insert()		//inserting a new record
+int insert(char *name, int empID, char *designation, int experience, int age)
 {
-	system("clear");
-	int i = num;
-	num += 1;
-	printf("Insert New Record\n");
-	printf("Enter The Following Items\n");
-	printf("Name:  ");
-	scanf("%s", emp[i].name);
-	printf("empID: ");
-	scanf("%ld", &emp[i].empID);
-	printf("Designation: ");
-	scanf("%s", emp[i].designation);
-	printf("Years of Experience: ");
-	scanf("%d", &emp[i].experience);
-	printf("Age: ");
-	scanf("%d", &emp[i].age);
-	printf("\n");
-	printf("The Record has been inserted successfully\n");
-	printf("Going to main menu");
-	return 0;
+    employee *emp;
+    FILE *fp3;
+    emp = (employee *)calloc(1, sizeof(employee));
+    fp3 = fopen("employeeData.txt", "a");
+    strcpy(emp->name, name);
+    emp->empID = empID;
+    strcpy(emp->designation, designation);
+    emp->experience = experience;
+    emp->age = age;
+    fwrite(emp, sizeof(employee), 1, fp3);
+    printf("The Record has been inserted successfully\n");
+    printf("Going to main menu");
+    fclose(fp3);
+    //fwrite();
+    return 0;
 }
