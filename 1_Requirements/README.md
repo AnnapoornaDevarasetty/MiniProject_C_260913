@@ -32,3 +32,31 @@ Specific information about the employee can not only be set to be kept private f
 ## SWOT Analysis:
 
 ![screen 1500px](../Images/SWOTAnalysis.jpg)
+
+## DETAIL REQUIREMENTS:
+### High Level Requirement:
+
+
+|ID|Description|Category|Status|
+|--|-----------|--------|------|
+|HR01|User will be able build a employee record|Technical|Implemented|
+|HR02|User will be able to diplay the list of records|Technical|Implemented|
+|HR03|User will be able to insert a new record in to the list|Technical|Implemented|
+|HR04|User will be able to delete a record from the list|Technical|Implemented|
+|HR05|User will be able to search for employee details|Technical|Implemented|
+|HR06|Employee data loss in case of any failures|Scenario|Implemented|
+|HR07|Privacy for the data to access|Technical|Future|
+|HR08|User will be able to sort the data|Technical|Implemented|
+|HR09|User will be able to update the records|Technical|Implemented|
+|HR10|Error message when entered data with same employee ID|Technical|Future|
+
+### Low Level Requirement:
+
+|ID|Description|Category|Status|
+|--|-----------|--------|------|
+|LR01|User need to access the data using the employee ID for deleting or updating the records in the list|Technical|Implemented|
+|LR02|In case of appending multiple records with same employee ID and displaying an error message|Technical|Future|
+|LR03|User can sort the records using experience and employee ID|Technical|Implemented|
+|LR04|User will be to save and read the records from the files|Technical|Implemented|
+
+
