@@ -1,67 +1,94 @@
-PROJ_NAME = employee_management_system
-TEST_PROJ_NAME = Test_$(PROJ_NAME)
 
-SRC = src/menu.c \ 
+# Name of the project
+PROJECT_NAME = employee_management_system
+
+# Output directory
+BUILD = build
+
+# All source code files
+SRC = main.c\
 src/build.c \
 src/list.c \
 src/insert.c \
 src/deletes.c \
-src/edit.c\
+src/edit.c \
 src/search.c \
 src/sort.c \
-
-COV_SRC = test.c
-
+test/test.c\
+unity/unity.c\
+src/menu.c \
 
 # All test source files
-TEST_SRC = test/test.c\
-unity/unity.c 
-INC_H = inc
-INC_T = unity
+TEST_SRC =  src/build.c \
+src/list.c \
+src/insert.c \
+src/deletes.c \
+src/edit.c \
+src/search.c \
+src/sort.c \
+test/test.c\
+unity/unity.c\
+src/menu.c \
 
+TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
 
+# All include folders with header files
+INC	= -Iinc\
+-Iunity\
 
-ifdef OS
-   RM = del 
-   FixPath = $(subst /,\,$1)
-   EXEC = exe
-else
-   ifeq ($(shell uname), Linux)
-      RM = rm -rf
-      FixPath = $1
-	  EXEC = out
-   endif
-endif
+#Library Inlcudes
+#INCLUDE_LIBS = 
+INCLUDE_LIBS = -lcunit
+
+# Project Output name
+PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME).out
+
+# Document files
+DOCUMENTATION_OUTPUT = documentation/html
+
+# Default target built
+$(PROJECT_NAME):all
+
+# Run the target even if the matching name exists
 .PHONY: run clean test doc all
 
+all: $(SRC) $(BUILD)
+	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).out
 
-all:
-	gcc -I $(INC_H) $(SRC) main.c -o $(call FixPath,$(PROJ_NAME).$(EXEC))
-	
-run:
-	$(call FixPath,$(PROJ_NAME).$(EXEC))
-test:
-	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(call FixPath,		$(TEST_PROJ_NAME).$(EXEC))
-	./$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
+# Call `make run` to run the application
+run:$(PROJECT_NAME)
+	./$(PROJECT_OUTPUT).out
 
-coverage:
-	cp test/test.c .
-	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) unity/unity.c test.c 
-	$(SRC) -o $(call FixPath, $(TEST_PROJ_NAME).$(EXEC))
-	$(call FixPath, ./$(TEST_PROJ_NAME).$(EXEC))
-	
-	
+# Document the code using Doxygen
+doc:
+	make -C ./documentation
 
+# Build and run the unit tests
+test:$(BUILD)
+	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
+	./$(TEST_OUTPUT)
 
-cppcheck:
-	cppcheck --enable=all $(SRC) main.c
-debug:
-	gcc -I $(INC_H) $(SRC) main.c -g -o $(PROJ_NAME).$(EXEC)
-	gdb $(PROJ_NAME).$(EXEC)
+analyze: test memcheck staticcheck coverage sanitize_check
 
-valgrind:
-	valgrind ./$(TEST_PROJ_NAME).$(EXEC)
+staticcheck:
+	cppcheck --enable=all -iunity .
 
+memcheck:
+	valgrind ./$(TEST_OUTPUT)
+
+sanitize_check:
+	gcc -fsanitize=address -fno-omit-frame-pointer $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
+	./$(TEST_OUTPUT)
+
+coverage:$(TEST_SRC)
+	gcc -fprofile-arcs -ftest-coverage $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
+	./$(TEST_OUTPUT)
+	gcov -a calculator_operations.c
+
+# Remove all the built files, invoke by `make clean`
 clean:
-	
-	$(RM) *.$(EXEC)
+	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT) *.gcda *.gcno *.gcov
+
+# Create new build folder if not present
+$(BUILD):
+	mkdir build
