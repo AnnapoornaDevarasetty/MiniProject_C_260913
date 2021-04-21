@@ -1,6 +1,6 @@
-#include "employeemanagement.h"
-#include "unity.h"
-#include "unity_internals.h"
+#include "../unity/unity.h"
+#include "../unity/unity_internals.h"
+#include"../inc/employeemanagement.h"
 
 
 int check_menu(int op)
@@ -9,18 +9,18 @@ int check_menu(int op)
 }
 
 //No testcases for build function
-int build()
+int check_build()
 {
     
 }
 
 //No testcases for list function
-int list()
+int check_list()
 {
 
 }
 
-int insert(char *name, int empID, char *designation, int experience, int age)
+int check_insert(char *name, int empID, char *designation, int experience, int age)
 {
     strcpy(name, "employee1");
     empID=101;
@@ -39,14 +39,14 @@ int insert(char *name, int empID, char *designation, int experience, int age)
     TEST_ASSERT_EQUAL(0, insert(name,empID,designation,experience,age));
 }
 
-int deletes (int empID)
+int check_deletes (int empID)
 {
     empID=101;      
     //If the empID given as same in the list the record will be deleted
     TEST_ASSERT_EQUAL(0,deletes(empID));
 }
 
-int edit(char *name, int empID, char *designation, int experience, int age)
+int check_edit(char *name, int empID, char *designation, int experience, int age)
 {
     strcpy(name, "employee2");
     empID=102;
@@ -58,7 +58,7 @@ int edit(char *name, int empID, char *designation, int experience, int age)
 
 }
 
-int search(int empID)
+int check_search(int empID)
 {
     empID=101;      
     //If the empID given as same in the list the record will be displayed
@@ -69,7 +69,7 @@ int search(int empID)
 }
 
 //No testcases for build function
-int sort()
+int check_sort()
 {
     
 }

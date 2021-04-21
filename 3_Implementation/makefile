@@ -1,8 +1,7 @@
-PROJ_NAME = employee_management_system
+PROJ_NAME = main
 TEST_PROJ_NAME = Test_$(PROJ_NAME)
 
-SRC = main.c\
-src/build.c \
+SRC = src/build.c \
 src/list.c \
 src/insert.c \
 src/deletes.c \
