@@ -25,4 +25,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: make
-        run: make -C 3_implementation/ all
+        run: make -C 3_Implementation
