@@ -8,8 +8,6 @@ src/deletes.c \
 src/edit.c \
 src/search.c \
 src/sort.c \
-test/test.c\
-unity/unity.c\
 src/menu.c \
 
 COV_SRC = test.c
@@ -17,7 +15,7 @@ COV_SRC = test.c
 
 # All test source files
 TEST_SRC = test/test.c \
-# unity/unity.c 
+unity/unity.c 
 INC_H = inc
 INC_T = unity
 
