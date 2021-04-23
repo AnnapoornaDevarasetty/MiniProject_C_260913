@@ -9,7 +9,6 @@ src/edit.c \
 src/search.c \
 src/sort.c \
 src/menu.c \
-src/main.c \
 
 COV_SRC = test.c
 
