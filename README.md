@@ -4,5 +4,4 @@ An emplpoyee management system is an application where all the data related to a
 
 | Build | Git Inspector | Code Quality |
 |--------|-------------------|---------------------|
-
 | ![C/C++ CI - Build Status](https://github.com/AnnapoornaDevarasetty/MiniProject_C_260913/actions/workflows/c-cpp.yml/badge.svg) | ![Contribution Check - Git Inspector](https://github.com/AnnapoornaDevarasetty/MiniProject_C_260913/actions/workflows/Gitinspector.yml/badge.svg)| ![Static Code Quality - CppCheck](https://github.com/AnnapoornaDevarasetty/MiniProject_C_260913/actions/workflows/cpp.yml/badge.svg)|
