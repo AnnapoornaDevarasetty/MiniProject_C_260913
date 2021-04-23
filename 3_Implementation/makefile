@@ -15,6 +15,7 @@ COV_SRC = test.c
 
 # All test source files
 TEST_SRC = test/test.c \
+src/main.c \
 unity/unity.c 
 INC_H = inc
 INC_T = unity
