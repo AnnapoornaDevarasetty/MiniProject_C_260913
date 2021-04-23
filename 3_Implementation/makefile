@@ -9,13 +9,13 @@ src/edit.c \
 src/search.c \
 src/sort.c \
 src/menu.c \
+src/main.c \
 
 COV_SRC = test.c
 
 
 # All test source files
 TEST_SRC = test/test.c \
-src/main.c \
 unity/unity.c 
 INC_H = inc
 INC_T = unity
