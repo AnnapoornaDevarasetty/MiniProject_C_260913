@@ -1,5 +1,5 @@
 PROJ_NAME = main
-TEST_PROJ_NAME = Test_$(PROJ_NAME)
+TEST_PROJ_NAME = $(PROJ_NAME)
 
 SRC = src/build.c \
 src/list.c \
@@ -59,8 +59,8 @@ debug:
 	gcc -I $(INC_H) $(SRC) main.c -g -o $(PROJ_NAME).$(EXEC)
 	gdb $(PROJ_NAME).$(EXEC)
 
-# valgrind:
-# 	valgrind ./$(TEST_PROJ_NAME).$(EXEC)
+valgrind:
+	valgrind ./$(TEST_PROJ_NAME).$(EXEC)
 
 clean:
 	
